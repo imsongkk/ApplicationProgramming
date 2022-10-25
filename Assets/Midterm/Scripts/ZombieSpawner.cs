@@ -16,7 +16,6 @@ public class ZombieSpawner : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log(spawnedZombie.GetInstanceID());
         elapsedTime += Time.deltaTime;
         if (elapsedTime >= 5f)
         {

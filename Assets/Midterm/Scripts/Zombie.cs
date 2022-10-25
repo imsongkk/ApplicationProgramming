@@ -10,6 +10,8 @@ public class Zombie : MonoBehaviour
     public int hp = 100;
     public bool died = false;
     public bool playerDetected = false;
+    public bool attacking = false;
+    public float lastAttackTime = 0f;
 
     PlayerController player;
 
@@ -30,9 +32,48 @@ public class Zombie : MonoBehaviour
         TryMove();
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            animator.SetBool("Attacking", true);
+            attacking = true;
+            player.UI.playerHP -= 5;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            attacking = false;
+            animator.SetBool("Attacking", false);
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            lastAttackTime += Time.deltaTime;
+            if(lastAttackTime >= 2f)
+            {
+                attacking = true;
+                animator.SetBool("Attacking", true);
+                player.UI.playerHP -= 5;
+                lastAttackTime = 0f;
+            }
+            else
+            {
+                attacking = false;
+                animator.SetBool("Attacking", false);
+            }
+        }
+    }
+
     private void TryMove()
     {
-        if (died) return;
+        if (died || attacking) return;
 
         if (playerDetected)
             animator.SetBool("Running", true);

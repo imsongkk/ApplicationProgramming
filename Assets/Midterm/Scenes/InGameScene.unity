@@ -11008,7 +11008,7 @@ MonoBehaviour:
   FPSCamera: {fileID: 1259422237}
   playerController: {fileID: 1034917169}
   isTps: 1
-  playerHP: 50
+  playerHP: 100
   playerEntireHP: 100
   playerAmmo: 10
   playerEntireAmmo: 10
@@ -42390,7 +42390,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1113400615}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42404,8 +42404,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1113400614}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 84.47, y: 2, z: 12.1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 84.47, y: 2, z: 21.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -42413,7 +42413,7 @@ Transform:
   - {fileID: 1034917164}
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1001 &1115089822
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48341,7 +48341,7 @@ GameObject:
   - component: {fileID: 1259422239}
   - component: {fileID: 1259422238}
   - component: {fileID: 1259422241}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FPSCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82694,7 +82694,7 @@ GameObject:
   - component: {fileID: 2105177933}
   - component: {fileID: 2105177935}
   - component: {fileID: 2105177934}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TPSCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
