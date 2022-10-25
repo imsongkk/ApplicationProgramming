@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] public Image hpbar;
     [SerializeField] public Image ammoImage;
     [SerializeField] public Image zoomImage;
+    [SerializeField] public Image crossHairImage;
     [SerializeField] public Image gameOverImage;
     [SerializeField] public TextMeshProUGUI ammo;
     [SerializeField] public TextMeshProUGUI hpText;

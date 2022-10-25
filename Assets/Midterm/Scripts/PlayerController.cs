@@ -67,6 +67,7 @@ public class PlayerController : MonoBehaviour
         if (isZoomed)
         {
             UI.zoomImage.gameObject.SetActive(true); // 줌 이미지 활성화
+            UI.crossHairImage.gameObject.SetActive(false); // 기본 크로스헤어 비활성화
 
             if (tpsCamera.gameObject.activeSelf) // 3인칭이면
             {
@@ -80,6 +81,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             UI.zoomImage.gameObject.SetActive(false); // 줌 이미지 비활성화
+            UI.crossHairImage.gameObject.SetActive(true); // 기본 크로스헤어 활성화
 
             if (tpsCamera.gameObject.activeSelf) // 3인칭이면
             {

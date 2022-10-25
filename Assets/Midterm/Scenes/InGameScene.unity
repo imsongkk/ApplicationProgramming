@@ -11291,6 +11291,7 @@ MonoBehaviour:
   hpbar: {fileID: 995448107}
   ammoImage: {fileID: 967140092}
   zoomImage: {fileID: 747582941}
+  crossHairImage: {fileID: 121996005}
   gameOverImage: {fileID: 1463154111}
   ammo: {fileID: 224900115}
   hpText: {fileID: 1590513470}
@@ -39698,6 +39699,7 @@ MonoBehaviour:
   animator: {fileID: 1034917170}
   shotSound: {fileID: 0}
   reloadSound: {fileID: 0}
+  errorSound: {fileID: 0}
   isPlaying: 1
   attackDamage: 50
   sensitivity: 4
