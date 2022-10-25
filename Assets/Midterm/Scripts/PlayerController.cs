@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 
     public UIManager UI { get; set; }
 
-    AudioSource shotSound, reloadSound;
+    public AudioSource shotSound, reloadSound;
     Rigidbody rigidBody;
 
     public bool isPlaying = true;
