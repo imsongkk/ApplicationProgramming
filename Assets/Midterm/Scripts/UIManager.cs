@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] public Image hpbar;
     [SerializeField] public Image ammoImage;
     [SerializeField] public Image zoomImage;
+    [SerializeField] public Image gameOverImage;
     [SerializeField] public TextMeshProUGUI ammo;
     [SerializeField] public TextMeshProUGUI hpText;
     [SerializeField] public TextMeshProUGUI isTPS;
@@ -55,6 +56,15 @@ public class UIManager : MonoBehaviour
         {
             FPSCamera.SetActive(true);
             TPSCamera.SetActive(false);
+        }
+
+        if (playerHP <= 0) // 게임 오버
+        {
+            GameManager.InGameScene.ShowCursor();
+            gameOverImage.gameObject.SetActive(true);
+            playerController.isPlaying = false;
+            playerHP = 0;
+            return;
         }
     }
 }

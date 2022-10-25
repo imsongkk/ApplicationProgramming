@@ -171,7 +171,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
         animator.SetTrigger("Shoot");
-        shotSound.Play();
+        shotSound.PlayOneShot(shotSound.clip);
         GameManager.InGameScene.UI.playerAmmo -= 1;
 
         RaycastHit[] result = default;

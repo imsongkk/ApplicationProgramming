@@ -1387,6 +1387,7 @@ MonoBehaviour:
   died: 0
   playerDetected: 0
   attacking: 0
+  lastAttackTime: 0
 --- !u!54 &6509455457741670613
 Rigidbody:
   m_ObjectHideFlags: 0

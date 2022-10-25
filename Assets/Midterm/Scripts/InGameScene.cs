@@ -9,13 +9,13 @@ public class InGameScene : MonoBehaviour
     [SerializeField] GameObject setting;
     [SerializeField] public UIManager UI;
 
-    void ShowCursor()
+    public void ShowCursor()
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
 
-    void HideCursor()
+    public void HideCursor()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;

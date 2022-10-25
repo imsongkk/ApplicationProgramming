@@ -85,9 +85,9 @@ public class Zombie : MonoBehaviour
         var distance = player.transform.position - transform.position;
         var move = distance.normalized;
 
-        transform.forward = move; // 플레이어 바라보도록 설정
-
         move = new Vector3(move.x, 0, move.z);
+
+        transform.forward = move; // 플레이어 바라보도록 설정
 
         var speed = 3f;
         transform.position += move * Time.deltaTime * speed; // 좀비 이동
