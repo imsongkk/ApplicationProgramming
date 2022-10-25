@@ -10,14 +10,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject upperBody;
     [SerializeField] Animator animator;
 
+    public UIManager UI { get; set; }
+
     AudioSource shotSound, reloadSound;
     Rigidbody rigidBody;
 
     public bool isPlaying = true;
     public int attackDamage = 50;
     public float sensitivity = 4.0f;
+
     float xRotate = 0;
-    private bool isJumping = false;
+    bool isJumping = false;
+    bool isZoomed = false;
 
     private void Start()
     {
@@ -50,6 +54,40 @@ public class PlayerController : MonoBehaviour
             Jump();
         if (Input.GetKeyDown(KeyCode.V))
             GameManager.InGameScene.UI.isTps = !GameManager.InGameScene.UI.isTps;
+        if (Input.GetMouseButtonDown(1))
+            TryZoom();
+    }
+
+    private void TryZoom()
+    {
+        isZoomed = !isZoomed; // toggle
+
+        if (isZoomed)
+        {
+            UI.zoomImage.gameObject.SetActive(true); // 줌 이미지 활성화
+
+            if (tpsCamera.gameObject.activeSelf) // 3인칭이면
+            {
+                tpsCamera.fieldOfView = 30;
+            }
+            else if (fpsCamera.gameObject.activeSelf) // 1인칭이면
+            {
+                fpsCamera.fieldOfView = 30;
+            }
+        }
+        else
+        {
+            UI.zoomImage.gameObject.SetActive(false); // 줌 이미지 비활성화
+
+            if (tpsCamera.gameObject.activeSelf) // 3인칭이면
+            {
+                tpsCamera.fieldOfView = 60;
+            }
+            else if (fpsCamera.gameObject.activeSelf) // 1인칭이면
+            {
+                fpsCamera.fieldOfView = 60;
+            }
+        }
     }
 
     private void Jump()

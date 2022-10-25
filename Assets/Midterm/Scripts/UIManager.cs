@@ -8,12 +8,14 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] public Image hpbar;
     [SerializeField] public Image ammoImage;
+    [SerializeField] public Image zoomImage;
     [SerializeField] public TextMeshProUGUI ammo;
     [SerializeField] public TextMeshProUGUI hpText;
     [SerializeField] public TextMeshProUGUI isTPS;
     [SerializeField] public TextMeshProUGUI scoreText;
     [SerializeField] public GameObject TPSCamera;
     [SerializeField] public GameObject FPSCamera;
+    [SerializeField] public PlayerController playerController;
 
     public bool isTps = true;
     public int playerHP = 50;
@@ -27,6 +29,7 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         color = ammoImage.color;
+        playerController.UI = this;
     }
 
     // Update is called once per frame
