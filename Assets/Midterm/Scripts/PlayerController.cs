@@ -200,8 +200,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject.name);
-        Debug.Log(collision.gameObject.tag);
         //¹Ù´Ú¿¡ ´êÀ¸¸é
         if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
