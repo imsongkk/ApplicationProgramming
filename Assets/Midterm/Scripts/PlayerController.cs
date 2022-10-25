@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 
     public UIManager UI { get; set; }
 
-    public AudioSource shotSound, reloadSound;
+    public AudioSource shotSound, reloadSound, errorSound;
     Rigidbody rigidBody;
 
     public bool isPlaying = true;
@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
                 reloadSound = sound;
             else if (sound.clip.name == "Shot")
                 shotSound = sound;
+            else if (sound.clip.name == "Error")
+                errorSound = sound;
         }
     }
 
@@ -167,7 +169,7 @@ public class PlayerController : MonoBehaviour
     {
         if(GameManager.InGameScene.UI.playerAmmo <= 0)
         {
-
+            errorSound.PlayOneShot(errorSound.clip);
             return;
         }
         animator.SetTrigger("Shoot");
