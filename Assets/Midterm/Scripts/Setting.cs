@@ -6,10 +6,15 @@ public class Setting : MonoBehaviour
 {
     [SerializeField] PlayerController player;
 
-
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
+        Debug.Log("A");
+        player.isPlaying = false;
+    }
 
+    private void OnDisable()
+    {
+        Debug.Log("B");
+        player.isPlaying = true;
     }
 }

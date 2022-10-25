@@ -23,6 +23,8 @@ public class Zombie : MonoBehaviour
 
     void Update()
     {
+        if (!player.isPlaying) return;
+
         var distance = player.transform.position - transform.position;
         if (distance.magnitude >= 50f)
             playerDetected = false;
