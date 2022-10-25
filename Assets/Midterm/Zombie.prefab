@@ -1385,6 +1385,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 100
   died: 0
+  playerDetected: 0
 --- !u!54 &6509455457741670613
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ public class Zombie : MonoBehaviour
 
     public int hp = 100;
     public bool died = false;
+    public bool playerDetected = false;
 
     PlayerController player;
 
@@ -20,36 +21,33 @@ public class Zombie : MonoBehaviour
 
     void Update()
     {
+        var distance = player.transform.position - transform.position;
+        if (distance.magnitude >= 50f)
+            playerDetected = false;
+        else
+            playerDetected = true;
+
         TryMove();
     }
 
     private void TryMove()
     {
+        if (died) return;
+
+        if (playerDetected)
+            animator.SetBool("Running", true);
+        else
+            animator.SetBool("Running", false);
+        
         var distance = player.transform.position - transform.position;
-        if (distance.magnitude >= 50f)
-            return;
-        var move = (player.transform.position - transform.position).normalized;
+        var move = distance.normalized;
+
+        transform.forward = move; // 플레이어 바라보도록 설정
+
         move = new Vector3(move.x, 0, move.z);
 
         var speed = 3f;
-        transform.position += move * Time.deltaTime * speed;
-
-
-        /*
-        var move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        if (move.magnitude == 0) // 인풋이 없음
-        {
-            animator.SetBool("Running", false);
-            return;
-        }
-        animator.SetBool("Running", true);
-
-        var newMove = new Vector3(transform.TransformDirection(move).x, 0, transform.TransformDirection(move).z);
-        float speed = 5f;
-        if (Input.GetKey(KeyCode.LeftShift))
-            speed = 10f;
-        transform.position += newMove * Time.deltaTime * speed;
-        */
+        transform.position += move * Time.deltaTime * speed; // 좀비 이동
     }
 
     public void OnDamage(int damage)
