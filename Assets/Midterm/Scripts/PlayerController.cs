@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 
     public UIManager UI { get; set; }
 
-    public AudioSource shotSound, reloadSound, errorSound;
+    public AudioSource shotSound, reloadSound, errorSound, gameoverSound;
     Rigidbody rigidBody;
 
     public bool isPlaying = true;
@@ -35,6 +35,11 @@ public class PlayerController : MonoBehaviour
                 shotSound = sound;
             else if (sound.clip.name == "Error")
                 errorSound = sound;
+            else if (sound.clip.name == "GameOver")
+            {
+                gameoverSound = sound;
+                gameoverSound.volume = 0.3f;
+            }
         }
     }
 

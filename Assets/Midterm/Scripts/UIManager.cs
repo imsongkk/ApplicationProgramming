@@ -25,6 +25,7 @@ public class UIManager : MonoBehaviour
     public int playerAmmo = 10;
     public int playerEntireAmmo = 10;
     public int score = 0;
+    public bool gameOvered = false;
 
     public Color color;
 
@@ -64,6 +65,12 @@ public class UIManager : MonoBehaviour
             GameManager.InGameScene.ShowCursor();
             gameOverImage.gameObject.SetActive(true);
             playerController.isPlaying = false;
+            //playerController.gameoverSound.PlayOneShot(playerController.gameoverSound.clip);
+            if(!gameOvered)
+            {
+                gameOvered = true;
+                playerController.gameoverSound.Play();
+            }
             playerHP = 0;
             return;
         }
