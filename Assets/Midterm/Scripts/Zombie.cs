@@ -23,7 +23,7 @@ public class Zombie : MonoBehaviour
     private void OnDie()
     {
         died = true;
-        GameManager.Instance.InGameScene().UI.score += 1;
+        GameManager.InGameScene.UI.score += 1;
         animator.SetTrigger("Die");
     }
 

@@ -9,28 +9,34 @@ public class InGameScene : MonoBehaviour
     [SerializeField] GameObject setting;
     [SerializeField] public UIManager UI;
 
-    // Start is called before the first frame update
-    void Start()
+    void ShowCursor()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
+    void HideCursor()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    // Update is called once per frame
+    void Start()
+    {
+        GameManager.InGameScene = this;
+
+        HideCursor();
+    }
+
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Q))
         {
-            if(setting.activeSelf)
-            {
-                Cursor.visible = false;
-                Cursor.lockState = CursorLockMode.Locked;
-            }
+            if (setting.activeSelf)
+                HideCursor();
             else
-            {
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None;
-            }
+                ShowCursor();
+
             player.isPlaying = setting.activeSelf;
             setting.SetActive(!setting.activeSelf);
         }

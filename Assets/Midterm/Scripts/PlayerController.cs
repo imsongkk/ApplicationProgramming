@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
             Jump();
         if (Input.GetKeyDown(KeyCode.V))
-            GameManager.Instance.InGameScene().UI.isTps = !GameManager.Instance.InGameScene().UI.isTps;
+            GameManager.InGameScene.UI.isTps = !GameManager.InGameScene.UI.isTps;
     }
 
     private void Jump()
@@ -127,18 +127,18 @@ public class PlayerController : MonoBehaviour
 
     private void Shoot()
     {
-        if(GameManager.Instance.InGameScene().UI.playerAmmo <= 0)
+        if(GameManager.InGameScene.UI.playerAmmo <= 0)
         {
 
             return;
         }
         animator.SetTrigger("Shoot");
         shotSound.Play();
-        GameManager.Instance.InGameScene().UI.playerAmmo -= 1;
+        GameManager.InGameScene.UI.playerAmmo -= 1;
 
         RaycastHit[] result = default;
 
-        if (GameManager.Instance.InGameScene().UI.isTps)
+        if (GameManager.InGameScene.UI.isTps)
             result = Physics.RaycastAll(tpsCamera.transform.position, tpsCamera.transform.forward, 10000);
         else
             result = Physics.RaycastAll(fpsCamera.transform.position, fpsCamera.transform.forward, 10000);
@@ -157,7 +157,7 @@ public class PlayerController : MonoBehaviour
     private void Reload()
     {
         reloadSound.Play();
-        GameManager.Instance.InGameScene().UI.playerAmmo = GameManager.Instance.InGameScene().UI.playerEntireAmmo;
+        GameManager.InGameScene.UI.playerAmmo = GameManager.InGameScene.UI.playerEntireAmmo;
     }
 
     private void OnCollisionEnter(Collision collision)

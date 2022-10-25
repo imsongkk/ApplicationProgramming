@@ -24,12 +24,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public int highscore = 0;
+    public static InGameScene InGameScene { get; set; }
 
-    public InGameScene InGameScene()
-    {
-        return GameObject.Find("@Scene").GetComponent<InGameScene>();
-    }
+    public int highscore = 0;
 
 
     // Start is called before the first frame update
